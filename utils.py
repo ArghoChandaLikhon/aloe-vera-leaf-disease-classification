@@ -1,4 +1,3 @@
-"""Small reusable helpers: reproducibility, stratified split, class weights."""
 
 import random
 
@@ -17,14 +16,6 @@ def set_seed(seed: int) -> None:
 
 
 def stratified_split_indices(targets, val_fraction: float, test_fraction: float, seed: int):
-    """
-    Split sample indices into train/val/test while preserving class
-    proportions in every split. `targets` is a list/array of integer class
-    labels, one per sample, in the same order as the dataset.
-
-    Returns three lists of indices: (train_idx, val_idx, test_idx). The
-    three lists are disjoint and together cover every index exactly once.
-    """
     targets = np.asarray(targets)
     all_idx = np.arange(len(targets))
     holdout_fraction = val_fraction + test_fraction
@@ -50,7 +41,6 @@ def stratified_split_indices(targets, val_fraction: float, test_fraction: float,
 
 
 def compute_class_weights(targets, num_classes: int) -> torch.Tensor:
-    """Inverse-frequency class weights for CrossEntropyLoss."""
     classes = np.arange(num_classes)
     weights = compute_class_weight(class_weight="balanced", classes=classes, y=np.asarray(targets))
     return torch.tensor(weights, dtype=torch.float32)

@@ -1,11 +1,3 @@
-"""
-Evaluate the best saved checkpoint on the held-out test set.
-
-Run with:  python evaluate.py
-
-Writes a classification report (txt) and a confusion matrix figure (png) to
-outputs/ -- both go straight into the paper's Results section.
-"""
 
 import matplotlib.pyplot as plt
 import torch

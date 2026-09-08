@@ -1,16 +1,3 @@
-"""
-Dataset loading for the Aloe Vera Healthy / Rot / Rust classifier.
-
-Expects config.DATA_DIR laid out as:
-    data/aloe_vera/
-        healthy/  *.jpg
-        rot/      *.jpg
-        rust/     *.jpg
-
-Uses two ImageFolder instances over the SAME directory (one with training
-augmentation, one without) and slices both with matching Subset indices, so
-the same physical image is never used for both training and evaluation.
-"""
 
 from torch.utils.data import DataLoader, Subset
 from torchvision import datasets, transforms

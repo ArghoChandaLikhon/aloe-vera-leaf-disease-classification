@@ -1,12 +1,3 @@
-"""
-Train the classifier.
-
-Run with:  python train.py
-
-Saves the best checkpoint (by validation macro-F1, not raw accuracy -- more
-trustworthy with three classes that aren't perfectly balanced) to
-outputs/best_model.pt, and a per-epoch history to outputs/training_history.csv.
-"""
 
 import csv
 import os
@@ -22,7 +13,7 @@ from dataset import get_dataloaders
 from model import build_model
 from utils import set_seed
 
-# Mixed precision only makes sense (and is only reliably supported) on CUDA.
+
 AMP_ENABLED = config.USE_AMP and config.DEVICE.type == "cuda"
 
 

@@ -1,6 +1,3 @@
-"""Model builder. Swap config.BACKBONE to change architectures -- nothing
-else in the codebase needs to change (timm handles the classifier head
-resizing for any backbone name)."""
 
 import timm
 import torch.nn as nn
